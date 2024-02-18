@@ -1,6 +1,7 @@
 {
-  "name": "canele",
-  "version": "0.0.0",
-  "scripts": {},
-  "files": []
+  "name": "@ibgrav/canele",
+  "private": true,
+  "devDependencies": {
+    "prettier": "3.2.5"
+  }
 }
