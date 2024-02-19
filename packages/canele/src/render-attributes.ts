@@ -13,14 +13,22 @@ export function renderAttributes(element: JSX.Element) {
 }
 
 function renderAttributeValue(value: unknown): string {
+  if (value === true) return "true";
+
   if (typeof value === "string") return value;
   if (typeof value === "number") return value.toString();
 
-  if (value === true) return "true";
-  if (value === false) return "false";
-
   if (Array.isArray(value)) {
-    return value.map(renderAttributeValue).join(" ");
+    return value.reduce((prev, value) => {
+      const result = renderAttributeValue(value);
+
+      if (result) {
+        if (prev) return `${prev} ${result}`;
+        return result;
+      }
+
+      return prev;
+    }, "");
   }
 
   return "";
