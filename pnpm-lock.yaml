@@ -18,11 +18,17 @@ importers:
         specifier: 2.0.1
         version: 2.0.1(typescript@5.3.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: 5.3.3
         version: 5.3.3
       vitest:
         specifier: 1.3.0
         version: 1.3.0
+
+  packages/design-system:
+    dependencies:
+      canele:
+        specifier: workspace:*
+        version: link:../canele
 
 packages:
 

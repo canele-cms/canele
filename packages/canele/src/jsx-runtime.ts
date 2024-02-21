@@ -1,4 +1,4 @@
-export * from "./jsx";
+export * from "./types";
 
 export const jsxSymbol = Symbol("jsx-symbol");
 

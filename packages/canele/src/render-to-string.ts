@@ -1,7 +1,7 @@
 import { isJSXElement } from "./is-jsx-element";
 import { renderAttributes } from "./render-attributes";
 
-export async function renderToString(children: JSX.Children, context: JSX.RenderContext): Promise<string> {
+export async function renderToString(children: JSX.Children, context: CaneleRenderContext): Promise<string> {
   try {
     children = await Promise.resolve(children);
 

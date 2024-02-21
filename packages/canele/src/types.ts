@@ -1,9 +1,9 @@
 export {};
 
 declare global {
-  namespace JSX {
-    type RenderContext = {};
+  interface CaneleRenderContext {}
 
+  namespace JSX {
     type Primitive = string | number | boolean | null | undefined;
 
     type ElementType = Exclude<keyof IntrinsicElements, number> | FC<Props>;
@@ -12,7 +12,7 @@ declare global {
 
     type Children = Primitive | Element | Array<Children> | Promise<Primitive | Element | Array<Children>>;
 
-    type FC<P extends Props = Props> = (props: P, context: RenderContext) => Children;
+    type FC<P extends Props = Props> = (props: P, context: CaneleRenderContext) => Children;
 
     interface Element {
       s: Symbol;
