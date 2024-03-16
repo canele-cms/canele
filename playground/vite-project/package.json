@@ -11,8 +11,8 @@
     "canele": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "5.3.3",
-    "vite": "5.1.4",
+    "typescript": "5.4.2",
+    "vite": "5.1.6",
     "vite-plugin-canele": "workspace:*",
     "vite-plugin-inspect": "0.8.3"
   }
