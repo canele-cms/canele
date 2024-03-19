@@ -32,6 +32,6 @@ export async function renderToString(children: JSX.Children, context: CaneleRend
 
     return "";
   } catch (e) {
-    throw new Error("render error");
+    throw e;
   }
 }
