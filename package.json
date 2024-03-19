@@ -1,7 +1,4 @@
 {
   "name": "@ibgrav/canele",
-  "private": true,
-  "devDependencies": {
-    "prettier": "3.2.5"
-  }
+  "private": true
 }

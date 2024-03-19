@@ -1,3 +1,4 @@
+import { VOID_ELEMENTS } from "./constants";
 import { isJSXElement } from "./is-jsx-element";
 import { renderAttributes } from "./render-attributes";
 
@@ -18,6 +19,10 @@ export async function renderToString(children: JSX.Children, context: CaneleRend
     if (typeof children === "object" && isJSXElement(children)) {
       if (typeof children.t === "function") {
         return renderToString(children.t(children.p, context), context);
+      }
+
+      if (VOID_ELEMENTS.includes(children.t)) {
+        return `<${children.t}${renderAttributes(children)} />`;
       }
 
       const child = await renderToString(children.p.children, context);
