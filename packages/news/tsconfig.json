@@ -1,0 +1,16 @@
+{
+  "include": ["src", "bin"],
+
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "checkJs": true,
+
+    "jsx": "react-jsx",
+    "jsxImportSource": "canele",
+
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Bundler"
+  }
+}

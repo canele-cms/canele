@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  @apply hover:underline;
+}
+
+p {
+  @apply mt-2;
+}

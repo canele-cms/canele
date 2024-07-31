@@ -1,15 +1,29 @@
 export function renderAttributes(element: JSX.Element) {
-  return Object.entries(element.p).reduce((prev, arr) => {
-    let name = arr[0];
-
-    if (name !== "children" && arr[1] !== null && arr[1] !== undefined) {
+  return Object.entries(element.p).reduce((prev, [name, value]) => {
+    if (name !== "children" && value !== null && value !== undefined) {
       if (name === "className") name = "class";
 
-      return prev + ` ${name}="${renderAttributeValue(arr[1])}"`;
+      return prev + ` ${name}="${renderAttributeValue(value)}"`;
     }
 
     return prev;
   }, "");
+}
+
+export function renderElementAttributes(element: JSX.Element, node: HTMLElement) {
+  Object.entries(element.p).forEach(([name, value]) => {
+    if (name !== "children" && value !== null && value !== undefined) {
+      if (name === "className") name = "class";
+
+      if (name === "html") {
+        node.innerHTML = renderAttributeValue(value);
+      } else if (name === "onclick" && typeof value === "function") {
+        node.addEventListener("click", (e) => value(e));
+      } else {
+        node.setAttribute(name, renderAttributeValue(value));
+      }
+    }
+  });
 }
 
 function renderAttributeValue(value: unknown): string {
