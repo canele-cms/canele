@@ -1,18 +1,27 @@
 {
   "name": "canele",
-  "version": "0.0.4",
   "type": "module",
-  "files": [
-    "dist"
-  ],
   "scripts": {
+    "dev": "node src/dev.ts",
     "test": "vitest",
-    "build": "pkgroll --minify --target=es2020"
+    "build": "rm -rf dist && pkgroll"
+  },
+  "dependencies": {
+    "vite": "5.3.5",
+    "vite-node": "2.0.3"
   },
   "devDependencies": {
-    "pkgroll": "2.0.2",
-    "typescript": "5.4.2",
-    "vitest": "1.4.0"
+    "@types/node": "20.14.12",
+    "pkgroll": "2.1.1",
+    "typescript": "5.5.4",
+    "vitest": "2.0.3"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "bin": {
+    "canele-dev": "dist/bin/dev.js"
   },
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
@@ -29,7 +38,7 @@
     },
     "./jsx-dev-runtime": {
       "types": "./dist/jsx-runtime.d.ts",
-      "import": "./dist/jsx-runtime.mjs",
+      "import": "./dist/jsx-runtime.js",
       "require": "./dist/jsx-runtime.cjs"
     }
   }

@@ -1,10 +1,12 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
 
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["dist"],
 
   "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+
     "jsx": "react-jsx",
     "jsxImportSource": "."
   }

@@ -1,7 +1,0 @@
-{
-  "name": "design-system",
-  "private": true,
-  "dependencies": {
-    "canele": "workspace:*"
-  }
-}
