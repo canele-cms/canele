@@ -1,9 +1,0 @@
-{
-  "name": "test",
-  "scripts": {
-    "dev": "canele-dev"
-  },
-  "dependencies": {
-    "canele": "workspace:*"
-  }
-}
