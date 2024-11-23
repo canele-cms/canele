@@ -1,0 +1,27 @@
+{
+  "name": "canele",
+  "type": "module",
+  "exports": {
+    "./locals": "./src/types/locals.d.ts",
+    "./integration": "./src/integration.ts",
+    "./data/libsql/middleware": "./src/data/libsql/middleware.ts"
+  },
+  "scripts": {
+    "sync": "astro sync",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "peerDependencies": {
+    "astro": ">=5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.4",
+    "astro": "5.0.0-beta.10",
+    "typescript": "5.6.3"
+  },
+  "dependencies": {
+    "@libsql/client": "0.14.0",
+    "drizzle-kit": "0.28.1",
+    "drizzle-orm": "0.36.4"
+  }
+}

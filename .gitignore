@@ -3,3 +3,6 @@
 dist/
 .astro/
 node_modules/
+
+.env*
+!.env.example
