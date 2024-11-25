@@ -4,6 +4,7 @@
   "exclude": ["dist"],
 
   "compilerOptions": {
+    "checkJs": true,
     "verbatimModuleSyntax": true,
 
     "noUnusedLocals": true,

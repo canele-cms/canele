@@ -1,15 +1,26 @@
-import { drizzle, type LibSQLDatabase } from "drizzle-orm/libsql";
+import { createClient, type Client } from "@libsql/client";
 import type { Database } from "../../types/database";
-import * as schema from "./schema";
+import { createTableUsers } from "./schema";
 
 export interface DatabaseLibqlOptions {
   url: string;
 }
 
 export class DatabaseLibql implements Database {
-  db: LibSQLDatabase<typeof schema>;
+  #db: Client;
 
   constructor({ url }: DatabaseLibqlOptions) {
-    this.db = drizzle({ connection: { url } });
+    this.#db = createClient({ url });
+  }
+
+  async migration() {
+    await this.#db.batch(createTableUsers, "write");
+  }
+
+  async selectUserByEmail(email: string) {
+    return this.#db.execute({
+      sql: /*sql*/ `SELECT id, email FROM users WHERE email = ?`,
+      args: [email],
+    });
   }
 }

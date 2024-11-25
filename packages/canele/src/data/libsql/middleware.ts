@@ -11,7 +11,10 @@ let db: DatabaseLibql;
 export const onRequest = defineMiddleware(async (ctx, next) => {
   if (!env.LIBSQL_URL) throw new Error("env.schema.LIBSQL_URL is required");
 
-  if (!db) db = new DatabaseLibql({ url: env.LIBSQL_URL });
+  if (!db) {
+    db = new DatabaseLibql({ url: env.LIBSQL_URL });
+    await db.migration(); // migrate on first load
+  }
 
   ctx.locals.cnl_db = db;
 

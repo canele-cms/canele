@@ -1,7 +1,8 @@
-import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
-
-export const users = sqliteTable("users", {
-  id: int().primaryKey({ autoIncrement: true }),
-  email: text().notNull().unique(),
-  password_hash: text().notNull(),
-});
+export const createTableUsers = [
+  /*sql*/ `CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT NOT NULL,
+                password_hash TEXT NOT NULL
+              )`,
+  /*sql*/ `CREATE UNIQUE INDEX IF NOT EXISTS users_unique_email ON users(email);`,
+];
