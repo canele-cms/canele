@@ -1,11 +1,7 @@
 {
-  "packageManager": "pnpm@9.14.2",
-  "scripts": {
-    "lint": "biome lint",
-    "format": "biome format",
-    "canele": "pnpm -F canele"
-  },
-  "devDependencies": {
-    "prettier": "3.3.3"
-  }
+    "type": "module",
+    "packageManager": "pnpm@9.14.2",
+    "scripts": {
+        "dev": "pnpm -F backend -F frontend dev"
+    }
 }

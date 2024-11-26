@@ -1,30 +1,20 @@
 {
   "name": "canele",
+  "version": "0.0.0",
   "type": "module",
-  "exports": {
-    "./locals": "./src/types/locals.d.ts",
-    "./integration": "./src/integration.ts",
-    "./data/libsql/middleware": "./src/data/libsql/middleware.ts"
+  "scripts": {
+    "dev": "tsx --env-file=.env bin/dev.ts",
+    "build": "tsc -b && vite build"
   },
-  "peerDependencies": {
-    "@libsql/client": "0.14.0",
-    "astro": ">=5"
-  },
-  "peerDependenciesMeta": {
-    "@libsql/client": {
-      "optional": true
-    }
+  "dependencies": {
+    "preact": "10.25.0",
+    "preact-custom-element": "4.3.0"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.4",
-    "@libsql/client": "0.14.0",
-    "@types/node": "22.9.3",
-    "astro": "5.0.0-beta.10",
-    "typescript": "5.6.3"
-  },
-  "scripts": {
-    "sync": "astro sync",
-    "check": "astro check",
-    "astro": "astro"
+    "@preact/preset-vite": "2.9.1",
+    "@types/preact-custom-element": "4.0.4",
+    "tsx": "4.19.2",
+    "typescript": "5.6.2",
+    "vite": "6.0.0"
   }
 }

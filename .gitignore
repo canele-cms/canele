@@ -1,8 +1,8 @@
+.env
 .DS_Store
 
 dist/
-.astro/
+.next/
 node_modules/
 
-.env*
-!.env.example
+next-env.d.ts
