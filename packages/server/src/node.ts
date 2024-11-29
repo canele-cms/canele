@@ -2,8 +2,8 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { Http2ServerRequest as Http2 } from "node:http2";
 import type { TLSSocket } from "node:tls";
 import { Readable, Writable } from "node:stream";
-import type { CaneleOptions } from "./types";
-import adapterFetch from "./fetch";
+import type { CaneleOptions } from "~/types";
+import adapterFetch from "~/fetch";
 
 export default function adapterNode(opts: CaneleOptions) {
   let origin: string;

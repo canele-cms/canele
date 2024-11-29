@@ -2,9 +2,9 @@ import type {
   GitHubLoginResponse,
   GithubOauthResponse,
   Handler,
-} from "../../types";
-import { createCookie, getCookies } from "../../lib/cookie";
-import { store } from "../../store";
+} from "~/types";
+import { createCookie, getCookies } from "~/lib/cookie";
+import { store } from "~/lib/store";
 
 export const githubApi: Handler = async (ctx) => {
   const { session } = getCookies(ctx);

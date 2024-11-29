@@ -1,6 +1,6 @@
-import type { GithubOauthResponse, Handler } from "../../types";
-import { createCookie, getCookies } from "../../lib/cookie";
-import { store } from "../../store";
+import type { GithubOauthResponse, Handler } from "~/types";
+import { createCookie, getCookies } from "~/lib/cookie";
+import { store } from "~/lib/store";
 
 export const githubCallback: Handler = async (ctx) => {
   const cookies = getCookies(ctx);

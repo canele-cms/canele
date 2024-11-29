@@ -1,5 +1,5 @@
-import type { Handler } from "../types";
-import { createCookie } from "../lib/cookie.js";
+import type { Handler } from "~/types";
+import { createCookie } from "~/lib/cookie.js";
 
 export const login: Handler = (ctx) => {
   const state = crypto.randomUUID();

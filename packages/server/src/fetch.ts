@@ -1,5 +1,5 @@
-import type { CaneleContext, CaneleOptions } from "./types";
-import { router } from "./router";
+import type { CaneleContext, CaneleOptions } from "~/types";
+import { router } from "~/lib/router";
 
 export default function adapterFetch(opts: CaneleOptions) {
   if (!opts.githubClientId) {

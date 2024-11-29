@@ -1,15 +1,16 @@
 import { createServer as createHttpServer } from "node:http";
 import { createServer as createViteServer } from "vite";
-import canele from "../src/node";
-
-const handler = canele({
-  githubClientId: process.env.GITHUB_CLIENT_ID!,
-  githubClientSecret: process.env.GITHUB_CLIENT_SECRET!,
-});
 
 const vite = await createViteServer({
   server: { middlewareMode: true },
   appType: "custom",
+});
+
+const canele = (await vite.ssrLoadModule("/src/node.ts")).default;
+
+const handler = canele({
+  githubClientId: process.env.GITHUB_CLIENT_ID!,
+  githubClientSecret: process.env.GITHUB_CLIENT_SECRET!,
 });
 
 const server = createHttpServer((req, res) => {
@@ -23,7 +24,7 @@ const server = createHttpServer((req, res) => {
   </head>
   <body>
     <canele-frontend />
-    <script type="module" src="/src/index.tsx"></script>
+    <script type="module" src="/@canele/editor"></script>
   </body>
 </html>`;
 

@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
-import preact from "@preact/preset-vite";
+import paths from "vite-tsconfig-paths";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  plugins: [preact(), dts({ include: "src" })],
+  plugins: [paths(), dts({ include: "src" })],
   resolve: {
     noExternal: true,
     external: ["node:http", "node:http2", "node:tls", "node:stream"],

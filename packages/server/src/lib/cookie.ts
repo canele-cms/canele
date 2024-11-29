@@ -1,4 +1,4 @@
-import type { CaneleContext } from "../types";
+import type { CaneleContext } from "~/types";
 
 export function getCookies(ctx: CaneleContext): Record<string, string> {
   const cookies: Record<string, string> = {};
