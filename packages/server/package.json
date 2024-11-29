@@ -1,11 +1,14 @@
 {
   "name": "@canele/server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "exports": {
     "./node": "./dist/node.js",
     "./fetch": "./dist/fetch.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsx --env-file=.env bin/dev.ts",
     "build": "tsc -b && vite build"

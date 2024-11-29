@@ -3,6 +3,7 @@
     "packageManager": "pnpm@9.14.2",
     "scripts": {
         "dev": "pnpm -F canele  dev",
-        "build": "pnpm -F \"@canele/*\" build"
+        "build": "pnpm -F \"@canele/*\" build",
+        "publish": "pnpm -F \"@canele/*\" publish"
     }
 }
