@@ -1,6 +1,6 @@
 import { createServer as createHttpServer } from "node:http";
 import { createServer as createViteServer } from "vite";
-import canele from "../backend/adapters/node";
+import canele from "../src/node";
 
 const handler = canele({
   githubClientId: process.env.GITHUB_CLIENT_ID!,

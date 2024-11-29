@@ -1,7 +1,7 @@
-import type { CaneleContext, CaneleOptions } from "../types.js";
-import { router } from "../router.js";
+import type { CaneleContext, CaneleOptions } from "./types";
+import { router } from "./router";
 
-function main(opts: CaneleOptions) {
+export default function adapterFetch(opts: CaneleOptions) {
   if (!opts.githubClientId) {
     throw new Error("githubClientId is required");
   }
@@ -31,5 +31,3 @@ function main(opts: CaneleOptions) {
     return new Response(null, { status: 404 });
   };
 }
-
-export default main;

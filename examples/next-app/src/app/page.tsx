@@ -1,3 +1,10 @@
+import { Canele } from "@canele/react";
+
 export default function Home() {
-  return <div>hi</div>;
+  return (
+    <div>
+      <Canele repository="ibgrav/test" />
+      hi
+    </div>
+  );
 }

@@ -1,0 +1,20 @@
+{
+  "name": "@canele/server",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./node": "./dist/node.js",
+    "./fetch": "./dist/fetch.js"
+  },
+  "scripts": {
+    "dev": "tsx --env-file=.env bin/dev.ts",
+    "build": "tsc -b && vite build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "vite": "6.0.0",
+    "vite-plugin-dts": "4.3.0"
+  }
+}

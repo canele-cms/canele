@@ -2,6 +2,7 @@
     "type": "module",
     "packageManager": "pnpm@9.14.2",
     "scripts": {
-        "dev": "pnpm -F backend -F frontend dev"
+        "dev": "pnpm -F canele  dev",
+        "build": "pnpm -F \"@canele/*\" build"
     }
 }

@@ -1,11 +1,6 @@
-import type { Handler } from "../../types.js";
-import { createCookie, getCookies } from "../../lib/cookie.js";
-
-interface GithubOauthResponse {
-  expires_in: number;
-  access_token: string;
-  refresh_token: string;
-}
+import type { GithubOauthResponse, Handler } from "../../types";
+import { createCookie, getCookies } from "../../lib/cookie";
+import { store } from "../../store";
 
 export const githubCallback: Handler = async (ctx) => {
   const cookies = getCookies(ctx);
@@ -30,6 +25,11 @@ export const githubCallback: Handler = async (ctx) => {
   });
 
   const oauth = (await oauthResponse.json()) as GithubOauthResponse;
+
+  store.set(state, {
+    ...oauth,
+    expires_at: Date.now() + oauth.expires_in,
+  });
 
   return new Response(null, {
     status: 307,

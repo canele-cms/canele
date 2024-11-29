@@ -1,0 +1,23 @@
+{
+    "name": "@canele/react",
+    "version": "0.0.0",
+    "type": "module",
+    "exports": {
+        ".": "./dist/index.js"
+    },
+    "scripts": {
+        "build": "vite build"
+    },
+    "peerDependencies": {
+        "react": ">=17"
+    },
+    "devDependencies": {
+        "@types/react": "18.3.12",
+        "@vitejs/plugin-react": "4.3.4",
+        "@canele/editor": "workspace:*",
+        "react": "19.0.0-rc-66855b96-20241106",
+        "typescript": "5.7.2",
+        "vite": "6.0.0",
+        "vite-plugin-dts": "4.3.0"
+    }
+}

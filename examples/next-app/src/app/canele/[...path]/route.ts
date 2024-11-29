@@ -1,5 +1,5 @@
 import process from "node:process";
-import canele from "@canele/backend";
+import canele from "@canele/server/fetch";
 
 export const handler = canele({
   githubClientId: process.env.GITHUB_CLIENT_ID!,

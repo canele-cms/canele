@@ -10,3 +10,13 @@ export interface CaneleContext extends CaneleOptions {
 }
 
 export type Handler = (ctx: CaneleContext) => Response | Promise<Response>;
+
+export interface GithubOauthResponse {
+  expires_in: number;
+  access_token: string;
+  refresh_token: string;
+}
+
+export interface GitHubLoginResponse extends GithubOauthResponse {
+  expires_at: number;
+}
