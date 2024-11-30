@@ -18,8 +18,6 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
         with:
@@ -42,7 +40,7 @@ jobs:
           version: pnpm changeset version
           title: "chore: update versions"
           commit: "chore: update versions"
-          publish: pnpm publish -r
+          # publish: pnpm publish -r
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
