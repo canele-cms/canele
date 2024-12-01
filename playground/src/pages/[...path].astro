@@ -12,5 +12,12 @@
   </head>
   <body>
     <pre>Astro.locals.canele.github.data, null, 2</pre>
+
+    <canele-dash
+      render={Boolean(Astro.locals.canele?.github?.data?.access_token)}
+    ></canele-dash>
+    <script>
+      import("../dash/render");
+    </script>
   </body>
 </html>

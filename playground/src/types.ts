@@ -3,3 +3,9 @@ export interface Store<K = string> {
   set<T>(key: K, value: T): Promise<void> | void;
   delete(key: K): Promise<void> | void;
 }
+
+export interface GitHubStoreData {
+  expires_at: number;
+  access_token: string;
+  refresh_token: string;
+}

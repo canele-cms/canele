@@ -1,8 +1,8 @@
 import type { GitHub } from "arctic";
 import { defineMiddleware } from "astro:middleware";
-import type { Store } from "./types";
+import type { GitHubStoreData, Store } from "./types";
 import { StoreLibsql } from "./lib/store/libsql";
-import { createGitHub, getGitHubStoreData, type GitHubStoreData } from "./lib/github";
+import { createGitHub, getGitHubStoreData } from "./lib/github";
 
 interface CaneleLocals {
   store: Store;

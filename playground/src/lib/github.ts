@@ -1,12 +1,8 @@
+import type { APIContext } from "astro";
 import { generateState, GitHub, type OAuth2Tokens } from "arctic";
 import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from "astro:env/server";
-import type { APIContext } from "astro";
-
-export interface GitHubStoreData {
-  expires_at: number;
-  access_token: string;
-  refresh_token: string;
-}
+import type { GitHubStoreData } from "../types";
+import { SESSION_COOKIE_NAME } from "./constants";
 
 export function createGitHubRedirectUri(location: URL) {
   return new URL("/canele/github/callback", location.origin);
@@ -43,7 +39,7 @@ export async function setGitHubStoreData(ctx: APIContext, session: string, token
 
   await ctx.locals.canele.store.set(session, data);
 
-  ctx.cookies.set("session", session, {
+  ctx.cookies.set(SESSION_COOKIE_NAME, session, {
     secure: import.meta.env.PROD,
     httpOnly: true,
     maxAge: 28800, // 8h
@@ -54,14 +50,14 @@ export async function setGitHubStoreData(ctx: APIContext, session: string, token
 }
 
 export async function getGitHubStoreData(ctx: APIContext): Promise<Partial<GitHubStoreData>> {
-  const session = ctx.cookies.get("session")?.value;
+  const session = ctx.cookies.get(SESSION_COOKIE_NAME)?.value;
 
   if (!session) return {};
 
   let data = await ctx.locals.canele.store.get<GitHubStoreData>(session);
 
-  if (!data?.access_token) {
-    ctx.cookies.delete("session");
+  if (!data?.access_token || !data.refresh_token || !data.expires_at) {
+    ctx.cookies.delete(SESSION_COOKIE_NAME);
     return {};
   }
 
