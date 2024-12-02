@@ -1,0 +1,27 @@
+{
+  "name": "@canele/dash",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./render": "./dist/render.js"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc -b && vite build"
+  },
+  "dependencies": {
+    "@nanostores/preact": "0.5.2",
+    "@nanostores/query": "0.3.4",
+    "preact": "10.25.0",
+    "preact-custom-element": "4.3.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "2.9.2",
+    "@tailwindcss/vite": "4.0.0-beta.4",
+    "@types/preact-custom-element": "4.0.4",
+    "tailwindcss": "4.0.0-beta.4",
+    "typescript": "5.7.2",
+    "vite": "6.0.1",
+    "vite-plugin-dts": "4.3.0"
+  }
+}

@@ -1,0 +1,23 @@
+---
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <pre>Path = {"/" + (Astro.params.path ?? "")}</pre>
+
+    <canele-dash
+      render={Boolean(Astro.locals.canele?.github?.data?.access_token)}
+    ></canele-dash>
+    <script>
+      import("../../dist/dash/render");
+    </script>
+  </body>
+</html>

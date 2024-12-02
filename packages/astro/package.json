@@ -2,13 +2,32 @@
   "name": "@canele/astro",
   "version": "0.0.0",
   "type": "module",
+  "exports": {
+    "./integration": "./src/integration.ts",
+    "./middleware": "./src/middleware.ts",
+    "./types/locals": "./src/types/locals.ts",
+    "./pages/[...path]": "./src/pages/[...path].astro",
+    "./pages/canele/index": "./src/pages/canele/index.astro",
+    "./pages/canele/github/callback": "./src/pages/canele/github/callback.ts",
+    "./pages/canele/github/api": "./src/pages/canele/github/api/[...path].ts"
+  },
   "scripts": {
     "astro": "astro"
   },
   "peerDependencies": {
+    "@libsql/client": ">=0.14.0",
     "astro": ">=5"
   },
+  "peerDependenciesMeta": {
+    "@libsql/client": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "arctic": "2.3.0"
+  },
   "devDependencies": {
+    "@libsql/client": "0.14.0",
     "astro": "5.0.0-beta.12",
     "typescript": "5.7.2"
   }

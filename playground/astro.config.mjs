@@ -1,10 +1,11 @@
 import { defineConfig, envField } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import preact from "@astrojs/preact";
+import canele from "@canele/astro/integration";
+import node from "@astrojs/node";
 
 export default defineConfig({
   output: "server",
-  integrations: [preact(), tailwind({ applyBaseStyles: false, nesting: true })],
+  adapter: node({ mode: "standalone" }),
+  integrations: [canele()],
   security: { checkOrigin: true },
   devToolbar: { enabled: false },
   env: {
