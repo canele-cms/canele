@@ -12,9 +12,6 @@
     "./pages/canele/github/callback": "./src/pages/canele/github/callback.ts",
     "./pages/canele/github/api": "./src/pages/canele/github/api/[...path].ts"
   },
-  "scripts": {
-    "astro": "astro"
-  },
   "peerDependencies": {
     "@libsql/client": ">=0.14.0",
     "astro": ">=5"
@@ -31,5 +28,8 @@
     "@libsql/client": "0.14.0",
     "astro": "5.0.0-beta.12",
     "typescript": "5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
