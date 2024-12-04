@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "pnpm -F dash build && pnpm -F dev -F dash dev",
     "check": "pnpm biome check",
-    "build": "pnpm -F \"@canele/*\" --parallel build"
+    "build": "pnpm -F \"@canele-cms/*\" --parallel build"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4"

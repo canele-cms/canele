@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import canele from "@canele/astro/integration";
+import canele from "@canele-cms/astro/integration";
 import node from "@astrojs/node";
 
 export default defineConfig({

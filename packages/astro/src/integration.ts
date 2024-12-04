@@ -23,31 +23,31 @@ export default function caneleAstroIntregration(): AstroIntegration {
 
         addMiddleware({
           order: "pre",
-          entrypoint: "@canele/astro/middleware",
+          entrypoint: "@canele-cms/astro/middleware",
         });
 
         injectRoute({
           pattern: "/[...path]",
-          entrypoint: "@canele/astro/pages/[...path]",
+          entrypoint: "@canele-cms/astro/pages/[...path]",
         });
         injectRoute({
           pattern: "/canele",
-          entrypoint: "@canele/astro/pages/canele/index",
+          entrypoint: "@canele-cms/astro/pages/canele/index",
         });
         injectRoute({
           pattern: "/canele/github/callback",
-          entrypoint: "@canele/astro/pages/canele/github/callback",
+          entrypoint: "@canele-cms/astro/pages/canele/github/callback",
         });
         injectRoute({
           pattern: "/canele/github/api/tree/[sha]",
-          entrypoint: "@canele/astro/pages/canele/github/api/tree",
+          entrypoint: "@canele-cms/astro/pages/canele/github/api/tree",
         });
       },
 
       "astro:config:done": ({ injectTypes }) => {
         injectTypes({
           filename: "locals.d.ts",
-          content: `import("@canele/astro/types/locals")`,
+          content: `import("@canele-cms/astro/types/locals")`,
         });
       },
     },

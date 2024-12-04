@@ -20,7 +20,7 @@ importers:
       '@astrojs/node':
         specifier: 9.0.0
         version: 9.0.0(astro@5.0.2(@types/node@22.10.1)(jiti@2.4.1)(lightningcss@1.28.2)(rollup@4.27.4)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.6.1))
-      '@canele/astro':
+      '@canele-cms/astro':
         specifier: workspace:*
         version: link:../packages/astro
       arctic:

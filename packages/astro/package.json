@@ -1,5 +1,5 @@
 {
-  "name": "@canele/astro",
+  "name": "@canele-cms/astro",
   "version": "0.0.0",
   "type": "module",
   "files": ["src", "dist"],
