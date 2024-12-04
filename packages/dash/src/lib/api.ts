@@ -4,4 +4,4 @@ const [createFetcherStore] = nanoquery({
   fetcher: (...keys) => fetch(`/canele${keys.join("")}`).then((r) => r.json()),
 });
 
-export const $githubUser = createFetcherStore(["/github/api/user"]);
+export const $githubTree = createFetcherStore(["/github/api/tree/main"]);

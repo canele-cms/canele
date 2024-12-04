@@ -1,9 +1,7 @@
 import type { GitHub } from "arctic";
-import type { Store } from "./impl";
 import type { GitHubStoreData } from "./github";
 
 export interface CaneleLocals {
-  store: Store;
   editor?: boolean;
   github: {
     oauth: GitHub;

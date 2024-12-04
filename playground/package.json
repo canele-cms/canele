@@ -12,7 +12,6 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/node": "9.0.0",
     "@canele/astro": "workspace:*",
-    "@libsql/client": "0.14.0",
     "arctic": "2.3.0",
     "astro": "5.0.2",
     "typescript": "5.7.2"

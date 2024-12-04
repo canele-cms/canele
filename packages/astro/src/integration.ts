@@ -13,6 +13,7 @@ export default function caneleAstroIntregration(): AstroIntegration {
           },
           env: {
             schema: {
+              JWT_SECRET: envField.string({ access: "secret", context: "server" }),
               GITHUB_REPO: envField.string({ access: "secret", context: "server" }),
               GITHUB_CLIENT_ID: envField.string({ access: "secret", context: "server" }),
               GITHUB_CLIENT_SECRET: envField.string({ access: "secret", context: "server" }),
@@ -38,8 +39,8 @@ export default function caneleAstroIntregration(): AstroIntegration {
           entrypoint: "@canele/astro/pages/canele/github/callback",
         });
         injectRoute({
-          pattern: "/canele/github/api/[...path]",
-          entrypoint: "@canele/astro/pages/canele/github/api",
+          pattern: "/canele/github/api/tree/[sha]",
+          entrypoint: "@canele/astro/pages/canele/github/api/tree",
         });
       },
 

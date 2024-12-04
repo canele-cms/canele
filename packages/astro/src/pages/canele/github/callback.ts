@@ -13,7 +13,7 @@ export const GET: APIRoute = async (ctx) => {
 
     const tokens = await ctx.locals.canele.github.oauth.validateAuthorizationCode(code);
 
-    await setGitHubStoreData(ctx, state, tokens);
+    await setGitHubStoreData(ctx, tokens);
   } catch (e) {
     console.error(e);
   }

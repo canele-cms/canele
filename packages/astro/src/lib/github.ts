@@ -3,6 +3,7 @@ import { generateState, GitHub, type OAuth2Tokens } from "arctic";
 import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from "astro:env/server";
 import { SESSION_COOKIE_NAME } from "./constants";
 import type { GitHubStoreData } from "../types/github";
+import { createSessionToken, getSessionTokenData } from "./session";
 
 export function createGitHubRedirectUri(location: URL) {
   return new URL("/canele/github/callback", location.origin);
@@ -18,7 +19,7 @@ export function createGitHub(location: URL) {
 export function createGitHubLoginUrl(ctx: APIContext) {
   const state = generateState();
 
-  const url = ctx.locals.canele.github.oauth.createAuthorizationURL(state, []);
+  const url = ctx.locals.canele.github.oauth.createAuthorizationURL(state, ["user:email", "repo"]);
 
   ctx.cookies.set("state", state, {
     secure: import.meta.env.PROD,
@@ -30,14 +31,14 @@ export function createGitHubLoginUrl(ctx: APIContext) {
   return url;
 }
 
-export async function setGitHubStoreData(ctx: APIContext, session: string, tokens: OAuth2Tokens) {
+export async function setGitHubStoreData(ctx: APIContext, tokens: OAuth2Tokens) {
   const data: GitHubStoreData = {
     access_token: tokens.accessToken(),
     refresh_token: tokens.refreshToken(),
     expires_at: Date.now() + tokens.accessTokenExpiresInSeconds(),
   };
 
-  await ctx.locals.canele.store.set(session, data);
+  const session = await createSessionToken(data);
 
   ctx.cookies.set(SESSION_COOKIE_NAME, session, {
     secure: import.meta.env.PROD,
@@ -54,7 +55,7 @@ export async function getGitHubStoreData(ctx: APIContext): Promise<Partial<GitHu
 
   if (!session) return {};
 
-  let data = await ctx.locals.canele.store.get<GitHubStoreData>(session);
+  let data = await getSessionTokenData(session);
 
   if (!data?.access_token || !data.refresh_token || !data.expires_at) {
     ctx.cookies.delete(SESSION_COOKIE_NAME);
@@ -63,7 +64,7 @@ export async function getGitHubStoreData(ctx: APIContext): Promise<Partial<GitHu
 
   if (data.expires_at < Date.now()) {
     const tokens = await ctx.locals.canele.github.oauth.refreshAccessToken(data.refresh_token);
-    data = await setGitHubStoreData(ctx, session, tokens);
+    data = await setGitHubStoreData(ctx, tokens);
   }
 
   return data;

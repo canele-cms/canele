@@ -1,18 +1,18 @@
 import { useStore } from "@nanostores/preact";
 import styles from "./styles.css?inline";
-import { $githubUser } from "./lib/api";
+import { $githubTree } from "./lib/api";
 
 export function App() {
-  const user = useStore($githubUser);
+  const tree = useStore($githubTree);
 
   return (
     <>
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: */}
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
-      <h1>Canele!</h1>
+      <h1>Tree</h1>
 
-      <pre>{JSON.stringify(user, null, 2)}</pre>
+      <pre>{JSON.stringify(tree, null, 2)}</pre>
     </>
   );
 }
