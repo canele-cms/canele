@@ -21,6 +21,7 @@ export type Props = {
 const { head, props } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en" {...props?.html}>
   <head {...props?.head}>
     <meta charset={head.charset ?? "utf-8"} />
