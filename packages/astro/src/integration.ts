@@ -7,6 +7,7 @@ export default function caneleAstroIntregration(): AstroIntegration {
     hooks: {
       "astro:config:setup": ({ injectRoute, addMiddleware, updateConfig }) => {
         updateConfig({
+          output: "server",
           security: {
             checkOrigin: true,
           },

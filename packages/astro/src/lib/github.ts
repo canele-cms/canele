@@ -1,8 +1,8 @@
 import type { APIContext } from "astro";
 import { generateState, GitHub, type OAuth2Tokens } from "arctic";
 import { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } from "astro:env/server";
-import type { GitHubStoreData } from "../types/impl";
 import { SESSION_COOKIE_NAME } from "./constants";
+import type { GitHubStoreData } from "../types/github";
 
 export function createGitHubRedirectUri(location: URL) {
   return new URL("/canele/github/callback", location.origin);

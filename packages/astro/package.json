@@ -4,13 +4,16 @@
   "type": "module",
   "files": ["src", "dist"],
   "exports": {
-    "./integration": "./src/integration.ts",
+    "./schema": "./src/schema/schema.ts",
     "./middleware": "./src/middleware.ts",
+    "./integration": "./src/integration.ts",
     "./types/locals": "./src/types/locals.ts",
     "./pages/[...path]": "./src/pages/[...path].astro",
     "./pages/canele/index": "./src/pages/canele/index.astro",
+    "./pages/canele/github/api": "./src/pages/canele/github/api/[...path].ts",
     "./pages/canele/github/callback": "./src/pages/canele/github/callback.ts",
-    "./pages/canele/github/api": "./src/pages/canele/github/api/[...path].ts"
+    "./components/dash.astro": "./src/components/dash.astro",
+    "./components/layout.astro": "./src/components/layout.astro"
   },
   "peerDependencies": {
     "@libsql/client": ">=0.14.0",
@@ -26,8 +29,11 @@
   },
   "devDependencies": {
     "@libsql/client": "0.14.0",
-    "astro": "5.0.0-beta.12",
+    "astro": "5.0.2",
     "typescript": "5.7.2"
+  },
+  "scripts": {
+    "astro": "astro"
   },
   "publishConfig": {
     "access": "public"

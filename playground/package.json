@@ -5,16 +5,16 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
+    "preview": "env $(cat .env | xargs) astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/node": "beta",
+    "@astrojs/node": "9.0.0",
     "@canele/astro": "workspace:*",
     "@libsql/client": "0.14.0",
     "arctic": "2.3.0",
-    "astro": "beta",
+    "astro": "5.0.2",
     "typescript": "5.7.2"
   }
 }

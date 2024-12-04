@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/preact";
 import styles from "./styles.css?inline";
-import { $githubUser } from "./api";
+import { $githubUser } from "./lib/api";
 
 export function App() {
   const user = useStore($githubUser);

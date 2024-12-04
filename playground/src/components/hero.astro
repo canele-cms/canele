@@ -1,0 +1,15 @@
+---
+import { text, type ComponentProps } from "@canele/astro/schema";
+
+export const fields = {
+  title: text({ required: true }),
+};
+
+type Props = ComponentProps<typeof fields>;
+
+const { title } = Astro.props;
+---
+
+<section>
+  <h2>{title}</h2>
+</section>

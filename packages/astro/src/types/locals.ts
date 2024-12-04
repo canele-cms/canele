@@ -4,6 +4,7 @@ import type { GitHubStoreData } from "./github";
 
 export interface CaneleLocals {
   store: Store;
+  editor?: boolean;
   github: {
     oauth: GitHub;
     data: Partial<GitHubStoreData>;

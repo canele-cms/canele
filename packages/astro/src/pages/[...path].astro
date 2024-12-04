@@ -1,23 +1,59 @@
 ---
+import type { JSX } from "astro/jsx-runtime";
+import type { Fields } from "../schema/schema";
+import Layout from "../components/layout.astro";
 
+type FC<P = Record<string, unknown>> = (props: P) => JSX.Children;
+
+interface AstroComponentModules {
+  fields: Fields;
+  default: FC;
+}
+
+const components: Record<string, AstroComponentModules> = {};
+
+for (const [path, mod] of Object.entries<AstroComponentModules>(
+  import.meta.glob("/src/components/**/*.astro", { eager: true })
+)) {
+  if (mod.default && mod.fields) {
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    components[path.split("/").pop()!.replace(".astro", "")] = {
+      fields: mod.fields,
+      default: mod.default,
+    };
+  }
+}
+
+const data = {
+  title: "Home Page",
+  components: [
+    {
+      id: "hero",
+      props: {
+        title: "Hello, World!",
+      },
+    },
+  ],
+};
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <pre>Path = {"/" + (Astro.params.path ?? "")}</pre>
+<Layout head={{ title: data.title }}>
+  {
+    data.components.map(({ id, props }) => {
+      const Component = components[id]?.default;
 
-    <canele-dash
-      render={Boolean(Astro.locals.canele?.github?.data?.access_token)}
-    ></canele-dash>
-    <script>
-      import("../../dist/dash/render");
-    </script>
-  </body>
-</html>
+      if (Component) {
+        if (Astro.locals.canele.editor) {
+          <>
+            <Component {...props} />
+            <script />
+          </>;
+        } else {
+          return <Component {...props} />;
+        }
+      }
+
+      return null;
+    })
+  }
+</Layout>

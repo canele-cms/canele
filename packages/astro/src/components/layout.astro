@@ -1,0 +1,40 @@
+---
+import type { JSX } from "astro/jsx-runtime";
+import Dash from "./dash.astro";
+
+interface HeadProps {
+  title: string;
+  charset?: string;
+  viewport?: string;
+  meta?: JSX.MetaHTMLAttributes[];
+}
+
+export type Props = {
+  head: HeadProps;
+  props?: {
+    html?: JSX.HTMLAttributes;
+    head?: JSX.HTMLAttributes;
+    body?: JSX.HTMLAttributes;
+  };
+};
+
+const { head, props } = Astro.props;
+---
+
+<html lang="en" {...props?.html}>
+  <head {...props?.head}>
+    <meta charset={head.charset ?? "utf-8"} />
+    <meta
+      name="viewport"
+      content={head.viewport ?? "width=device-width, initial-scale=1"}
+    />
+
+    {head.meta?.map((props) => <meta {...props} />)}
+
+    <title>{head.title}</title>
+  </head>
+  <body {...props?.body}>
+    <slot />
+    <Dash />
+  </body>
+</html>
