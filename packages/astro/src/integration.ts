@@ -35,12 +35,12 @@ export default function caneleAstroIntregration(): AstroIntegration {
           entrypoint: "@canele-cms/astro/pages/canele/index",
         });
         injectRoute({
-          pattern: "/canele/github/callback",
-          entrypoint: "@canele-cms/astro/pages/canele/github/callback",
+          pattern: "/canele/api/[...path]",
+          entrypoint: "@canele-cms/astro/pages/canele/api",
         });
         injectRoute({
-          pattern: "/canele/github/api/tree/[sha]",
-          entrypoint: "@canele-cms/astro/pages/canele/github/api/tree",
+          pattern: "/canele/github/callback",
+          entrypoint: "@canele-cms/astro/pages/canele/github/callback",
         });
       },
 

@@ -1,18 +1,18 @@
-import { useStore } from "@nanostores/preact";
-import styles from "./styles.css?inline";
-import { $githubTree } from "./lib/api";
+import styles from "~/styles.css?inline";
+import { Tree } from "~/components/tree";
+import { useBranchContentsTree } from "./hooks/use-api";
 
 export function App() {
-  const tree = useStore($githubTree);
+  const content = useBranchContentsTree("main");
 
   return (
     <>
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: */}
       <style dangerouslySetInnerHTML={{ __html: styles }} />
 
-      <h1>Tree</h1>
-
-      <pre>{JSON.stringify(tree, null, 2)}</pre>
+      {content.data?.tree.map((node) => (
+        <Tree key={node.sha} {...node} />
+      ))}
     </>
   );
 }
