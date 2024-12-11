@@ -1,0 +1,21 @@
+{
+  "name": "example-astro",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "astro": "astro",
+    "db:push": "drizzle-kit push"
+  },
+  "dependencies": {
+    "@astrojs/node": "9.0.0",
+    "@canele-cms/astro": "workspace:*",
+    "@canele-cms/dash": "workspace:*",
+    "@canele-cms/server": "workspace:*",
+    "@libsql/client": "0.14.0",
+    "astro": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "drizzle-kit": "0.30.0"
+  }
+}

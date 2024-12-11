@@ -1,20 +1,23 @@
 import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
-import paths from "vite-tsconfig-paths";
-import preact from "@preact/preset-vite";
+import solid from "vite-plugin-solid";
 
-export default defineConfig({
-  plugins: [paths(), preact(), dts({ include: "src" })],
-  build: {
-    emptyOutDir: true,
-    outDir: "../astro/dist/dash",
-    minify: false,
-    cssMinify: false,
-    lib: {
-      formats: ["es"],
-      entry: {
-        render: "./src/render.tsx",
+export default defineConfig((env) => {
+  return {
+    plugins: [solid()],
+    clearScreen: false,
+    define: {
+      "process.env.NODE_ENV": JSON.stringify(env.mode),
+    },
+    build: {
+      outDir: "./dist",
+      minify: false,
+      cssMinify: false,
+      emptyOutDir: true,
+      lib: {
+        formats: ["es"],
+        fileName: "index",
+        entry: "/src/index.tsx",
       },
     },
-  },
+  };
 });

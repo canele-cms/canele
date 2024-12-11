@@ -2,7 +2,7 @@
   "type": "module",
   "packageManager": "pnpm@9.14.2",
   "scripts": {
-    "dev": "pnpm -F dash build && pnpm -F astro sync && pnpm -F dev -F dash dev",
+    "dev": "pnpm -F server -F dash -F example-astro run --parallel dev",
     "check": "pnpm biome check",
     "build": "pnpm -F \"@canele-cms/*\" --parallel build"
   },
