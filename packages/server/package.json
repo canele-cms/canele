@@ -1,0 +1,27 @@
+{
+  "name": "@canele-cms/server",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./types": "./dist/types.js",
+    "./adapters/fetch": "./dist/adapters/fetch.js",
+    "./adapters/node": "./dist/adapters/node.js",
+    "./adapters/node.standalone": "./dist/adapters/node.standalone.js"
+  },
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/adapters/node.standalone.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@trpc/client": "11.0.0-rc.657",
+    "@trpc/server": "11.0.0-rc.657",
+    "arctic": "2.3.0",
+    "jose": "5.9.6",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2"
+  }
+}

@@ -2,5 +2,7 @@
 .DS_Store
 
 dist/
+build/
 .astro/
 node_modules/
+.react-router/

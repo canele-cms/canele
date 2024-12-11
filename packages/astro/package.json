@@ -7,35 +7,29 @@
     "./schema": "./src/schema/schema.ts",
     "./middleware": "./src/middleware.ts",
     "./integration": "./src/integration.ts",
-
     "./types/api": "./src/types/api.ts",
     "./types/locals": "./src/types/locals.ts",
-
     "./pages/[...path]": "./src/pages/[...path].astro",
     "./pages/canele/index": "./src/pages/canele/index.astro",
     "./pages/canele/api": "./src/pages/canele/api.ts",
     "./pages/canele/github/callback": "./src/pages/canele/github/callback.ts",
-
     "./components/dash.astro": "./src/components/dash.astro",
     "./components/layout.astro": "./src/components/layout.astro"
   },
   "peerDependencies": {
     "astro": ">=5"
   },
-  "peerDependenciesMeta": {
-    "@libsql/client": {
-      "optional": true
-    }
-  },
   "dependencies": {
     "arctic": "2.3.0",
     "jose": "5.9.6"
   },
   "devDependencies": {
+    "@astrojs/node": "9.0.0",
     "astro": "5.0.2",
     "typescript": "5.7.2"
   },
   "scripts": {
+    "dev": "astro dev",
     "sync": "astro sync",
     "astro": "astro"
   },

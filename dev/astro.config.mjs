@@ -4,6 +4,7 @@ import node from "@astrojs/node";
 
 export default defineConfig({
   integrations: [canele()],
+  output: "server",
   adapter: node({ mode: "standalone" }),
   devToolbar: { enabled: false },
 });

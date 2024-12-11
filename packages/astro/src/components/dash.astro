@@ -1,11 +1,10 @@
 ---
-// biome-ignore lint/complexity/noBannedTypes:
-type Props = {};
+import { actions } from 'astro:actions';
+
+actions
 ---
 
 <>
   <canele-dash render={Astro.locals.canele.editor}></canele-dash>
-  <script>
-    import("../../dist/dash/render");
-  </script>
+  
 </>
