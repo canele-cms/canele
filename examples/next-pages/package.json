@@ -1,8 +1,7 @@
 {
-  "name": "example-next-app",
-  "type": "module",
+  "name": "example-next-pages",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

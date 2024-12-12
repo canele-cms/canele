@@ -11,8 +11,8 @@ export function createCaneleServer({ base }: CaneleServerOptions) {
 
   app.use(secureHeaders());
 
-  app.get("/", (c) => {
-    return c.json(c.env);
+  app.get("/health", (c) => {
+    return c.json({ ok: true, DB_LIBSQL_URL: c.env.DB_LIBSQL_URL });
   });
 
   return app;

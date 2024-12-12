@@ -5,26 +5,38 @@
   "files": ["src", "dist"],
   "exports": {
     "./astro": {
-      "import": "./src/astro/integration.ts",
-      "types": "./dist/astro/integration.d.ts"
+      "types": "./dist/astro/integration.d.ts",
+      "import": "./src/astro/integration.ts"
     },
     "./editor": {
+      "types": "./dist/editor/index.d.ts",
       "import": "./dist/editor.js",
-      "types": "./dist/editor/index.d.ts"
-    },
-    "./next": {
-      "import": "./dist/next.js",
-      "types": "./dist/next/server.d.ts"
+      "require": "./dist/editor.cjs"
     },
     "./server": {
+      "types": "./dist/server/server.d.ts",
       "import": "./dist/server.js",
-      "types": "./dist/server/server.d.ts"
+      "require": "./dist/server.cjs"
+    },
+    "./next/app": {
+      "types": "./dist/next/app.d.ts",
+      "import": "./dist/next-app.js",
+      "require": "./dist/next-app.cjs"
+    },
+    "./next/pages": {
+      "types": "./dist/next/pages.d.ts",
+      "import": "./dist/next-pages.js",
+      "require": "./dist/next-pages.cjs"
+    },
+    "./react/editor": {
+      "types": "./dist/react/editor.d.ts",
+      "import": "./dist/react-editor.js",
+      "require": "./dist/react-editor.cjs"
     }
   },
   "scripts": {
     "dev": "vite dev",
-    "types": "astro sync",
-    "build": "vite build && vite build --ssr"
+    "build": "astro sync && tsc && vite build && vite build --ssr"
   },
   "peerDependencies": {
     "@libsql/client": ">=0.14.0",
@@ -43,16 +55,20 @@
     }
   },
   "dependencies": {
+    "@hono/node-server": "1.13.7",
     "drizzle-orm": "0.38.0",
     "hono": "4.6.13"
   },
   "devDependencies": {
     "@libsql/client": "0.14.0",
+    "@types/react": "^19",
     "astro": "5.0.5",
     "autoprefixer": "10.4.20",
     "drizzle-kit": "0.30.0",
     "next": "15.1.0",
     "postcss": "8.4.49",
+    "react": "19.0.0",
+    "rollup-preserve-directives": "1.1.3",
     "solid-js": "1.9.3",
     "tailwindcss": "3.4.16",
     "typescript": "5.7.2",

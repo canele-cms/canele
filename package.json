@@ -2,7 +2,9 @@
   "type": "module",
   "packageManager": "pnpm@9.14.2",
   "scripts": {
-    "dev": "pnpm -F canele types && pnpm -F canele -F example-astro run --parallel dev",
+    "dev:astro": "pnpm -F canele build && pnpm -F canele -F example-astro run --parallel dev",
+    "dev:next-app": "pnpm -F canele build && pnpm -F canele -F example-next-app run --parallel dev",
+    "dev:next-pages": "pnpm -F canele build && pnpm -F canele -F example-next-pages run --parallel dev",
     "check": "pnpm biome check"
   },
   "devDependencies": {
