@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
-import canele from "@canele-cms/astro";
+import canele from "canele/astro";
 
 export default defineConfig({
   adapter: node({ mode: "standalone" }),

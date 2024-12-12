@@ -2,9 +2,8 @@
   "type": "module",
   "packageManager": "pnpm@9.14.2",
   "scripts": {
-    "dev": "pnpm -F server -F dash -F example-astro run --parallel dev",
-    "check": "pnpm biome check",
-    "build": "pnpm -F \"@canele-cms/*\" --parallel build"
+    "dev": "pnpm -F canele types && pnpm -F canele -F example-astro run --parallel dev",
+    "check": "pnpm biome check"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4"

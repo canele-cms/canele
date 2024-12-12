@@ -1,0 +1,9 @@
+---
+import { LOCAL_DEV } from "astro:env/server";
+import Local from "./editor.local.astro";
+import Prod from "./editor.prod.astro";
+---
+
+<div id="canele"></div>
+
+{LOCAL_DEV ? <Local /> : <Prod />}
