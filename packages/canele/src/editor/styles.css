@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+form {
+  @apply flex flex-col gap-2;
+}
+
+input {
+  @apply px-2 py-1 block border border-teal-800 rounded;
+}
+
+button {
+  @apply px-2 py-1 border border-teal-800 rounded self-start cursor-pointer;
+}

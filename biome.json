@@ -21,7 +21,16 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "correctness": {
+        "useJsxKeyInIterable": "off"
+      },
+      "style": {
+        "useShorthandFunctionType": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      }
     }
   },
   "javascript": {

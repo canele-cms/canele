@@ -2,8 +2,8 @@
   "name": "example-astro",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
     "astro": "astro",
+    "dev": "pnpm db:push && astro dev",
     "db:push": "drizzle-kit push"
   },
   "dependencies": {

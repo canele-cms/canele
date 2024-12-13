@@ -1,3 +1,9 @@
+export interface Session {
+  id: string;
+  user_id: number;
+  expires_at: number;
+}
+
 export type PublishStatus = "draft" | "published" | "pending" | "archived";
 
 export interface Publishable {

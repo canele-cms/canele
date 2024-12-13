@@ -1,4 +1,3 @@
-import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/libsql";
 import type { Database } from "../../types/database.js";
 import type { Bindings } from "../../types/env.js";
@@ -16,14 +15,10 @@ export function createDatabaseLibsql(env: LibsqlEnv): Database {
   });
 
   return {
-    async getSiteByRoot(root) {
-      const [site] = await db.select().from(schema.sites).where(eq(schema.sites.root, root));
-      return site;
-    },
-    async createSite(data) {
-      const [site] = await db.insert(schema.sites).values({ name: data.name, root: data.root, status: "draft" }).returning();
-      if (!site) throw new Error("Site create failed.");
-      return site;
+    async createSession(data) {
+      const [session] = await db.insert(schema.sessions).values(data).returning();
+      if (!session) throw new Error("session create failed");
+      return session;
     },
   };
 }

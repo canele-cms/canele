@@ -9,6 +9,14 @@ const publishable = {
   updated_at: text().notNull().default(sql`(current_timestamp)`),
 };
 
+export const sessions = sqliteTable("sessions", {
+  id: text().notNull().primaryKey(),
+  expires_at: int().notNull(),
+  user_id: int()
+    .notNull()
+    .references(() => users.id),
+});
+
 export const users = sqliteTable("users", {
   ...publishable,
   id: int().primaryKey({ autoIncrement: true }),
